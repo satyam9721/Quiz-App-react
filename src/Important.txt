@@ -1,0 +1,12 @@
+questionText is use for question option.
+
+isCorrect: false ,option false
+
+isCorrect: true, option true
+you can also increase option also.
+
+answerOptions: question ka option
+
+currentQuestion se hi new question pass hoga
+
+useState, option ko change karega
