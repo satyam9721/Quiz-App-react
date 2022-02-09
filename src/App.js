@@ -48,14 +48,14 @@ export default function App() {
 		},
 	];
 
-const [currentQuestion, setCurrentQuestion] = useState(0);  	// questions hamse zero se start karega and currentQuestion variable hai jo question dal raha hai
+const [currentQuestion, setCurrentQuestion] = useState(0);  	// questions will be start from zero and also it's currentQuestion variable who putting the question
 	
-   const [showScore, setShowScore] = useState(false);  //showScore,quiz end hone ke baad score show karega ,useState(false)=> ek question ke baad answer nahi show karan hai,isi liye
+   const [showScore, setShowScore] = useState(false);  //showScore,this show score after the quiz is ended ,useState(false)=> after the end of the question that not show another questions
 	
-   const [score, setScore] = useState(0);  // Is line se ,score ke defaul value zero hogi by,useState(0).
+   const [score, setScore] = useState(0);  //from this line ,default value of score will be zero,useState(0).
 
-	const handleAnswerOptionClick = (isCorrect) => {   //handleAnswerOptionClick ye fuction option ke button par click hone par next question par le jaye ga
-		if (isCorrect)  //agar sahi option user chuna then ,score ko increment kar, this line says.
+	const handleAnswerOptionClick = (isCorrect) => {   //handleAnswerOptionClick,this fuction help into jump the next question after clicking the button
+		if (isCorrect)  //if user pick the right answer then ,score will be incremented .
     {
 			setScore(score + 1);
 		}
@@ -73,7 +73,7 @@ const [currentQuestion, setCurrentQuestion] = useState(0);  	// questions hamse 
     // ----------------
 		<div className='app'>
       
-			{showScore ?      //agar user ka option sahi, uska  score display kar degi
+			{showScore ?      //if option is right which is choose by user, then display the score
       (
 				<div className='score-section'>
 					You scored {score} out of {questions.length}
@@ -82,13 +82,13 @@ const [currentQuestion, setCurrentQuestion] = useState(0);  	// questions hamse 
 				<>
 					<div className='question-section'>
 						<div className='question-count'>
-							<span>Question {currentQuestion + 1}</span>/{questions.length}    {/* {currentQuestion + 1}  kis question par user hai uski value batyega,ex-2/4,here user is in second question*/}
+							<span>Question {currentQuestion + 1}</span>/{questions.length}    {/* {currentQuestion + 1}  value,where user is present,ex-2/4,here user is in second question*/}
 						</div>
 						<div className='question-text'>{questions[currentQuestion].questionText}</div>
 					</div>
 					<div className='answer-section'>
 						{questions[currentQuestion].answerOptions.map((answerOption) => (
-							<button onClick={() => handleAnswerOptionClick(answerOption.isCorrect)}>{answerOption.answerText}</button> //yaha isCorrect ka use true / false value ko store karne ke liya hua hai
+							<button onClick={() => handleAnswerOptionClick(answerOption.isCorrect)}>{answerOption.answerText}</button> // isCorrect is used to store true / false value 
 						))}
 					</div>
 				</>
